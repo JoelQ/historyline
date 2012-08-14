@@ -1,2 +1,26 @@
 <h1><%= @course.name %></h1>
 <p><%= @course.description %></p>
+
+<%= link_to "New", new_admin_course_event_path(@course) %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Media</th>
+      <th></th>
+    </tr>
+    <tbody>
+      <% @course.events.each do |event| %>
+        <tr>
+          <td><%= link_to event.name, [:admin, @course, event] %></td>
+          <td><%= link_to event.media, event.media %></td>
+          <td>
+            <%= link_to "Edit", edit_admin_course_event_path(@course, event) %>
+            <%= link_to "Delete", admin_course_event_path(@course, event), method: :delete, confirm: "Are you sure?" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </thead>
+</table>

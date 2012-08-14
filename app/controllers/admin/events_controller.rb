@@ -15,7 +15,7 @@ class Admin::EventsController < ApplicationController
   end
 
   def create
-    @event = Course.new(params[:event].merge({course_id: params[:course_id]}))
+    @event = Event.new(params[:event].merge({course_id: params[:course_id]}))
     if @event.save
       redirect_to admin_course_path(params[:course_id])
     else

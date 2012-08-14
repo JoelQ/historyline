@@ -10,7 +10,9 @@
 
   <div class="field">
     <%= f.label :start_date %>
-    <%= f.date_select :start_date %>
+    <%= f.text_field :start_date %>
+    <%= f.select :start_date, Date::MONTHNAMES %>
+    <%= f.select :start_date, 1..31 %>
   </div>
 
   <div class="field">

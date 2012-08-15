@@ -11,4 +11,6 @@ Historyline::Application.routes.draw do
   namespace :api do
     resources :courses, only: :show
   end
+
+  root to: 'courses#index'
 end

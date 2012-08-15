@@ -4,8 +4,8 @@ json.timeline do |json|
   json.text @course.description
 
   json.date @course.events do |json, event|
-    json.startDate event.start_date
-    json.endDate event.end_date
+    json.startDate event.start_date.present? ? "#{event.start_date.year}, #{event.start_date.month}, #{event.start_date.day}" : ""
+    json.endDate event.end_date.present? ? "#{event.end_date.year}, #{event.end_date.month}, #{event.end_date.day}" : ""
     json.headline event.name
     json.text event.description
 

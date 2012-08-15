@@ -1,5 +1,7 @@
 Historyline::Application.routes.draw do
   namespace :admin do
-    resources :courses
+    resources :courses do
+      resources :events
+    end
   end
 end
